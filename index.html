@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Monforte | Ferramentaria e Usinagem</title>
   <meta name="description" content="Monforte - Usinagem pesada de peças de grande porte. Estrutura para torneamento, fresamento, mandrilhamento, retífica e eletroerosão de componentes industriais.">
+  <link rel="icon" type="image/png" href="assets/img/icone.png">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,7 +45,7 @@
       --font-sora: 'Sora', sans-serif;             /* títulos e textos gerais */
 
       /* Layout */
-      --header-height: 130px;
+      --header-height: 180px;
       --header-height-mobile: 84px;
       --container-width: 1200px;
     }
@@ -74,6 +75,18 @@
     h1, h2, h3, h4, p { margin: 0; }
 
     button { font-family: inherit; cursor: pointer; }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
 
     .container {
       width: 100%;
@@ -219,8 +232,8 @@
       gap: 44px;
     }
 
-    .nav-list--left { margin-right: 64px; }
-    .nav-list--right { margin-left: 64px; }
+    .nav-list--left { margin-right: 84px; }
+    .nav-list--right { margin-left: 84px; }
 
     .nav-list a {
       font-family: var(--font-archivo);
@@ -256,7 +269,7 @@
     }
 
     .logo img {
-      height: 108px;
+      height: 122px;
       width: auto;
     }
 
@@ -381,11 +394,260 @@
     ========================================= */
     @media (max-width: 1100px) {
       .nav-list { gap: 26px; }
-      .nav-list--left { margin-right: 36px; }
-      .nav-list--right { margin-left: 36px; }
+      .nav-list--left { margin-right: 56px; }
+      .nav-list--right { margin-left: 56px; }
       .header-inner { padding: 0 24px; }
-      .logo img { height: 88px; }
+      .logo img { height: 100px; }
       .hero-title { font-size: 40px; }
+    }
+
+    /* =========================================
+       RODAPÉ — Informações e redes sociais
+    ========================================= */
+    .site-footer {
+      background-color: var(--color-blue-900);
+      background-image:
+        linear-gradient(90deg, rgba(0,17,41,0.28), rgba(0,40,86,0.12)),
+        url('assets/img/fundo-rodape.webp');
+      background-size: cover;
+      background-position: center;
+      color: var(--color-white);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 64px;
+      min-height: 250px;
+      padding-top: 34px;
+      padding-bottom: 34px;
+    }
+
+    .footer-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .footer-logo {
+      width: 155px;
+      height: auto;
+      margin-bottom: 18px;
+    }
+
+    .footer-address {
+      color: var(--color-gray-100);
+      font-family: var(--font-sora);
+      font-size: 13px;
+      font-weight: 300;
+      font-style: normal;
+      line-height: 1.45;
+    }
+
+    .footer-social {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      min-width: 210px;
+    }
+
+    .footer-social-title {
+      color: var(--color-gray-100);
+      font-family: var(--font-sora);
+      font-size: 13px;
+      font-weight: 300;
+    }
+
+    .footer-social-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      color: var(--color-blue-400);
+      transition: color .25s ease, transform .25s ease;
+    }
+
+    .footer-social-link:hover {
+      color: var(--color-white);
+      transform: translateY(-2px);
+    }
+
+    .footer-social-link svg {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+    }
+
+    @media (max-width: 700px) {
+      .footer-inner {
+        flex-direction: column;
+        justify-content: center;
+        gap: 36px;
+        padding-top: 48px;
+        padding-bottom: 48px;
+        text-align: center;
+      }
+
+      .footer-info { align-items: center; }
+      .footer-address { font-size: 12px; }
+    }
+
+    /* =========================================
+       CLIENTES — Empresas atendidas
+    ========================================= */
+    .clients {
+      background-color: var(--color-white);
+      padding: 86px 0 96px;
+    }
+
+    .clients-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .clients-title {
+      margin-bottom: 18px;
+      font-size: 26px;
+    }
+
+    .clients-intro {
+      max-width: 510px;
+      margin: 0 auto;
+      color: var(--color-gray-600);
+      font-family: var(--font-sora);
+      font-size: 12px;
+      font-weight: 300;
+      line-height: 1.65;
+    }
+
+    .clients-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      align-items: center;
+      gap: 34px 42px;
+      max-width: 820px;
+      margin: 50px auto 0;
+    }
+
+    .client-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 58px;
+    }
+
+    .client-logo img {
+      width: auto;
+      max-width: 100%;
+      max-height: 52px;
+      object-fit: contain;
+      filter: grayscale(1);
+      opacity: .58;
+    }
+
+    @media (max-width: 991px) {
+      .clients { padding: 72px 0 78px; }
+      .clients-grid { gap: 28px 24px; margin-top: 40px; }
+    }
+
+    @media (max-width: 560px) {
+      .clients { padding: 62px 0 68px; }
+      .clients-title { font-size: 22px; }
+      .clients-grid { grid-template-columns: repeat(2, 1fr); gap: 28px 18px; margin-top: 34px; }
+      .client-logo { min-height: 48px; }
+      .client-logo img { max-height: 42px; }
+    }
+
+    /* =========================================
+       MÁQUINAS — Portfólio de equipamentos
+    ========================================= */
+    .machines {
+      background-color: var(--color-gray-100);
+      padding: 92px 0 96px;
+    }
+
+    .machines-inner {
+      max-width: 780px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .machines-title {
+      margin-bottom: 22px;
+      font-size: 28px;
+    }
+
+    .machines-intro {
+      max-width: 510px;
+      margin: 0 auto;
+      color: var(--color-gray-600);
+      font-family: var(--font-sora);
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .machines-select-wrap {
+      position: relative;
+      margin-top: 42px;
+    }
+
+    .machines-select {
+      width: 100%;
+      height: 46px;
+      padding: 0 48px 0 28px;
+      appearance: none;
+      border: 0;
+      border-radius: 24px;
+      outline: none;
+      background-color: var(--color-white);
+      color: var(--color-gray-500);
+      font-family: var(--font-sora);
+      font-size: 14px;
+      font-weight: 300;
+      cursor: pointer;
+    }
+
+    .machines-select:focus-visible {
+      box-shadow: 0 0 0 3px rgba(0, 148, 205, 0.3);
+    }
+
+    .machines-select-wrap::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 28px;
+      width: 0;
+      height: 0;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 8px solid var(--color-gray-500);
+      pointer-events: none;
+      transform: translateY(-35%);
+    }
+
+    @media (max-width: 991px) {
+      .machines { padding: 72px 0 76px; }
+      .machines-title { font-size: 25px; }
+    }
+
+    @media (max-width: 560px) {
+      .machines { padding: 62px 0 66px; }
+      .machines-title { font-size: 22px; }
+      .machines-intro { font-size: 12px; }
+      .machines-select { padding-left: 20px; font-size: 12px; }
+      .machines-select-wrap { margin-top: 32px; }
+      .machines-select-wrap::after { right: 20px; }
     }
 
     @media (max-width: 991px) {
@@ -456,6 +718,144 @@
     }
 
     /* =========================================
+
+    /* =========================================
+       CONTATO — Formulário de orçamento
+    ========================================= */
+    .contact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 520px;
+      background-color: var(--color-black-2);
+    }
+
+    .contact-image {
+      min-height: 520px;
+      background-image: url('assets/img/foto-contato.webp');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .contact-form-panel {
+      display: flex;
+      align-items: center;
+      padding: 72px clamp(40px, 8vw, 120px);
+      background-color: var(--color-black-2);
+    }
+
+    .contact-form-inner {
+      width: 100%;
+      max-width: 520px;
+    }
+
+    .contact-title {
+      margin-bottom: 42px;
+      color: var(--color-white);
+      font-family: var(--font-sora);
+      font-size: 28px;
+      font-weight: 400;
+      line-height: 1.2;
+    }
+
+    .contact-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+    }
+
+    .contact-field {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .contact-field--full { grid-column: 1 / -1; }
+
+    .contact-field label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      width: 100%;
+      pointer-events: none;
+      padding: 7px 7px 4px;
+      background-color: var(--color-gray-600);
+      color: var(--color-white);
+      font-family: var(--font-montserrat);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .contact-field input,
+    .contact-field textarea {
+      width: 100%;
+      border: 0;
+      border-radius: 0;
+      outline: none;
+      background-color: var(--color-gray-600);
+      color: var(--color-white);
+      font-family: var(--font-montserrat);
+      font-size: 13px;
+      resize: vertical;
+    }
+
+    .contact-field input { height: 40px; padding: 21px 7px 4px; line-height: 1.2; }
+    .contact-field textarea { min-height: 104px; padding: 22px 7px 8px; line-height: 1.4; }
+
+    .contact-field input:focus,
+    .contact-field textarea:focus {
+      box-shadow: inset 0 0 0 2px var(--color-blue-400);
+    }
+
+    .contact-actions {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 16px;
+      grid-column: 1 / -1;
+      margin-top: 2px;
+    }
+
+    .contact-submit {
+      padding: 13px 28px;
+      background-color: var(--color-blue-400);
+      color: var(--color-white);
+      font-family: var(--font-archivo);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .contact-submit:hover {
+      background-color: var(--color-blue-500);
+      transform: translateY(-1px);
+    }
+
+    .contact-status {
+      color: var(--color-blue-400);
+      font-family: var(--font-montserrat);
+      font-size: 11px;
+    }
+
+    @media (max-width: 991px) {
+      .contact { grid-template-columns: 1fr; }
+      .contact-image { min-height: min(560px, 70vw); }
+      .contact-form-panel { padding: 64px 40px 72px; }
+      .contact-form-inner { max-width: 620px; margin: 0 auto; }
+    }
+
+    @media (max-width: 560px) {
+      .contact-image { min-height: 78vw; }
+      .contact-form-panel { padding: 52px 24px 60px; }
+      .contact-title { margin-bottom: 30px; font-size: 24px; }
+      .contact-form { grid-template-columns: 1fr; }
+      .contact-field--full { grid-column: auto; }
+      .contact-actions { grid-column: auto; }
+    }
        SOBRE / VÍDEO INSTITUCIONAL
     ========================================= */
     .about-video {
@@ -1069,7 +1469,9 @@
       background-color: var(--color-gray-100);
     }
 
-    .gallery-panel + .gallery-panel { margin-top: 8px; }
+    .gallery-panel + .gallery-panel { margin-top: 0; }
+
+    .gallery-panel:last-of-type { background-color: var(--color-white); }
 
     .gallery-panel img {
       width: 100%;
@@ -1078,8 +1480,8 @@
     }
 
     .gallery-panel:last-of-type img {
-      -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 18%, rgba(0,0,0,.55) 48%, transparent 84%);
-      mask-image: linear-gradient(to bottom, #000 0%, #000 18%, rgba(0,0,0,.55) 48%, transparent 84%);
+      -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 0%, rgba(0,0,0,1) 0%, transparent 100%);
+      mask-image: linear-gradient(to bottom, #000 0%, #000 0%, rgba(0,0,0,1) 0%, transparent 100%);
       -webkit-mask-repeat: no-repeat;
       mask-repeat: no-repeat;
       -webkit-mask-size: 100% 100%;
@@ -1095,6 +1497,10 @@
       white-space: nowrap;
     }
 
+    .gallery-cta:hover {
+      transform: translateX(-50%) translateY(-1px);
+    }
+
     @media (max-width: 991px) {
       .gallery { padding: 64px 0 76px; }
       .gallery-visual { padding-bottom: 108px; }
@@ -1106,7 +1512,7 @@
       .gallery-title { font-size: 24px; }
       .gallery-header { margin-bottom: 26px; }
       .gallery-visual { padding-bottom: 82px; }
-      .gallery-panel + .gallery-panel { margin-top: 10px; }
+      .gallery-panel + .gallery-panel { margin-top: 0; }
       .gallery-cta { bottom: 100px; }
     }
   </style>
@@ -1351,6 +1757,143 @@
   </section>
 
   <!-- =========================================
+       MÁQUINAS — Portfólio de equipamentos
+  ========================================== -->
+  <section class="machines" id="maquinas" aria-labelledby="machines-title">
+    <div class="container">
+      <div class="machines-inner reveal-onscroll" style="--delay:0s">
+        <h2 class="section-title machines-title" id="machines-title">Conheça nossas máquinas e nossa estrutura.</h2>
+        <p class="machines-intro">
+          Nosso portfólio de máquinas conta opções robustas para atender a todos os tipos de pedidos e demandas, desde pedidos de pequeno à grande porte. Veja abaixo a lista de máquinas da nossa empresa.
+        </p>
+
+        <div class="machines-select-wrap">
+          <label class="sr-only" for="machines-list">Lista de máquinas e equipamentos</label>
+          <select class="machines-select" id="machines-list">
+            <option value="" selected>Consultar lista completa (26 máquinas e equipamentos).</option>
+            <option>Torno CNC</option>
+            <option>Torno convencional</option>
+            <option>Centro de usinagem CNC</option>
+            <option>Fresa convencional</option>
+            <option>Mandrilhadora</option>
+            <option>Retífica plana</option>
+            <option>Retífica cilíndrica</option>
+            <option>Furadeira radial</option>
+            <option>Serra fita</option>
+            <option>Prensa hidráulica</option>
+            <option>Máquina de eletroerosão</option>
+            <option>Ponte rolante de 10 toneladas</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       CLIENTES — Empresas atendidas
+  ========================================== -->
+  <section class="clients" id="clientes" aria-labelledby="clients-title">
+    <div class="container">
+      <div class="clients-inner reveal-onscroll" style="--delay:0s">
+        <h2 class="section-title clients-title" id="clients-title">Conheça alguns dos clientes que contam<br>com a qualidade Monforte.</h2>
+        <p class="clients-intro">Empresas de diferentes segmentos confiam na Monforte para entregar precisão, qualidade e soluções industriais sob medida.</p>
+
+        <div class="clients-grid">
+          <div class="client-logo"><img src="assets/img/gerdau.webp" alt="Gerdau" loading="lazy"></div>
+          <div class="client-logo"><img src="assets/img/weg.webp" alt="WEG" loading="lazy"></div>
+          <div class="client-logo"><img src="assets/img/Vilares.webp" alt="Villares Metals" loading="lazy"></div>
+          <div class="client-logo"><img src="assets/img/jbt.webp" alt="JBT" loading="lazy"></div>
+          <div class="client-logo"><img src="assets/img/Andritz.webp" alt="Andritz" loading="lazy"></div>
+          <div class="client-logo"><img src="assets/img/maxion.webp" alt="Maxion Wheels" loading="lazy"></div>
+          <div class="client-logo"><img src="assets/img/allison.webp" alt="Allison Transmission" loading="lazy"></div>
+          <div class="client-logo"><img src="assets/img/ksb.webp" alt="KSB" loading="lazy"></div>
+          <div class="client-logo"><img src="assets/img/superior.webp" alt="Superior" loading="lazy"></div>
+          <div class="client-logo"><img src="assets/img/did.webp" alt="D.I.D" loading="lazy"></div>
+          <div class="client-logo"><img src="assets/img/khs.webp" alt="KHS" loading="lazy"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       CONTATO — Formulário de orçamento
+  ========================================== -->
+  <section class="contact" id="contato" aria-labelledby="contact-title">
+    <div class="contact-image" role="img" aria-label="Equipe Monforte trabalhando em uma peça industrial"></div>
+
+    <div class="contact-form-panel">
+      <div class="contact-form-inner reveal-onscroll" style="--delay:0s">
+        <h2 class="contact-title" id="contact-title">Entre em contato com<br>nossa equipe.</h2>
+
+        <form class="contact-form" id="contactForm">
+          <div class="contact-field contact-field--full">
+            <label for="contact-name">Nome</label>
+            <input id="contact-name" name="name" type="text" required>
+          </div>
+
+          <div class="contact-field">
+            <label for="contact-phone">Telefone</label>
+            <input id="contact-phone" name="phone" type="tel" required>
+          </div>
+
+          <div class="contact-field">
+            <label for="contact-whatsapp">WhatsApp</label>
+            <input id="contact-whatsapp" name="whatsapp" type="tel">
+          </div>
+
+          <div class="contact-field contact-field--full">
+            <label for="contact-email">E-mail</label>
+            <input id="contact-email" name="email" type="email" required>
+          </div>
+
+          <div class="contact-field contact-field--full">
+            <label for="contact-message">Mensagem</label>
+            <textarea id="contact-message" name="message" required></textarea>
+          </div>
+
+          <div class="contact-actions">
+            <span class="contact-status" id="contactStatus" role="status" aria-live="polite"></span>
+            <button class="contact-submit" type="submit">Enviar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       RODAPÉ — Informações e redes sociais
+  ========================================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-info">
+        <a href="#hero" aria-label="Voltar ao início">
+          <img class="footer-logo" src="assets/img/logo-rodape.webp" alt="Monforte - Ferramentaria e Usinagem">
+        </a>
+        <address class="footer-address">
+          Rua Henrique Wiezel, 79, Distrito Industrial, Santa Bárbara d’Oeste, SP<br>
+          contato@monfortefousinagem.com.br<br>
+          (19) 3454.4971 / (19) 3454.5643
+        </address>
+      </div>
+
+      <div class="footer-social">
+        <p class="footer-social-title">Acesse nossas redes sociais</p>
+        <div class="footer-social-links">
+          <a class="footer-social-link" href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5Zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5ZM17.5 6a1.25 1.25 0 1 1-1.25 1.25A1.25 1.25 0 0 1 17.5 6Z"/></svg>
+          </a>
+          <a class="footer-social-link" href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.75l.42-3h-3.17V9.08c0-.87.24-1.46 1.5-1.46h1.8V4.94c-.31-.04-1.38-.14-2.62-.14-2.59 0-4.36 1.58-4.36 4.48V11H7.05v3h2.77v8h3.68Z"/></svg>
+          </a>
+          <a class="footer-social-link" href="#" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.58 7.19a2.75 2.75 0 0 0-1.94-1.95C17.93 4.75 12 4.75 12 4.75s-5.93 0-7.64.49a2.75 2.75 0 0 0-1.94 1.95A28.4 28.4 0 0 0 1.93 12a28.4 28.4 0 0 0 .49 4.81 2.75 2.75 0 0 0 1.94 1.95c1.71.49 7.64.49 7.64.49s5.93 0 7.64-.49a2.75 2.75 0 0 0 1.94-1.95 28.4 28.4 0 0 0 .49-4.81 28.4 28.4 0 0 0-.49-4.81ZM10 15.25v-6.5L15.5 12 10 15.25Z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================
        MODAL DE VÍDEO
        Para usar: coloque a URL do vídeo (YouTube/Vimeo ou .mp4)
        no atributo data-video-src do botão #playVideoBtn acima.
@@ -1509,6 +2052,21 @@
 
       document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+      });
+    })();
+
+    // =========================================
+    // MONFORTE — Validação visual do formulário
+    // =========================================
+    (function () {
+      var contactForm = document.getElementById('contactForm');
+      var contactStatus = document.getElementById('contactStatus');
+      if (!contactForm || !contactStatus) return;
+
+      contactForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        contactStatus.textContent = 'Mensagem recebida. Em breve entraremos em contato.';
+        contactForm.reset();
       });
     })();
   </script>
