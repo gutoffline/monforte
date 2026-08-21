@@ -84,6 +84,16 @@ document.addEventListener('DOMContentLoaded', function () {
       contactForm.reset();
     });
   }
+
+  var machinesListToggle = document.getElementById('machinesListToggle');
+  var machinesListPanel = document.getElementById('machinesListPanel');
+  if (machinesListToggle && machinesListPanel) {
+    machinesListToggle.addEventListener('click', function () {
+      var isExpanded = machinesListToggle.getAttribute('aria-expanded') === 'true';
+      machinesListToggle.setAttribute('aria-expanded', String(!isExpanded));
+      machinesListPanel.hidden = isExpanded;
+    });
+  }
 });
 
 (function () {
