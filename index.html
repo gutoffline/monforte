@@ -22,7 +22,6 @@
   <meta name="twitter:image" content="assets/img/foto_destaque.webp">
   <link rel="icon" type="image/png" href="assets/img/icone.png">
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -47,15 +46,14 @@
       }
     }
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>emailjs.init({ publicKey: 'DL9cMxCQIxZY_j7jg' });</script>
 
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
 
-  <!-- =========================================
-       HEADER
-  ========================================== -->
   <header class="site-header" id="siteHeader">
     <div class="header-inner">
 
@@ -86,9 +84,6 @@
 
   <main id="main-content">
 
-    <!-- =========================================
-       HERO
-  ========================================== -->
     <section class="hero" id="hero">
       <div class="hero-media" id="heroMedia">
         <img src="assets/img/foto_destaque.webp" alt="Máquina industrial usinando uma peça de grande porte na Monforte"
@@ -116,22 +111,16 @@
       </div>
     </section>
 
-    <!-- próximas seções serão adicionadas aqui -->
-
-    <!-- =========================================
-       SOBRE / VÍDEO INSTITUCIONAL
-  ========================================== -->
     <section class="about-video" id="quem-somos">
       <div class="container about-video-inner">
 
         <div class="video-box reveal-onscroll" style="--delay:0s">
           <div class="video-thumb">
-            <button class="play-btn" id="playVideoBtn" type="button" aria-haspopup="dialog"
-              aria-label="Assistir vídeo institucional Monforte" data-video-src="">
-              <span class="play-ring"></span>
-              <span class="play-ring play-ring--delay"></span>
-              <img src="assets/img/play.webp" alt="" class="play-icon">
-            </button>
+            <iframe class="video-embed" src="https://www.youtube.com/embed/pF9gbWSqfa0?rel=0&modestbranding=1"
+              title="Vídeo institucional Monforte"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+            </iframe>
           </div>
         </div>
 
@@ -156,9 +145,6 @@
       </div>
     </section>
 
-    <!-- =========================================
-       ESTRUTURA �?" Capacidade industrial
-  ========================================== -->
     <section class="structure" id="estrutura">
       <div class="container structure-inner">
         <div class="structure-copy reveal-onscroll" style="--delay:0s">
@@ -186,9 +172,6 @@
       </div>
     </section>
 
-    <!-- =========================================
-       DIFERENCIAIS �?" Qualidade e capacidade
-  ========================================== -->
     <section class="differentials" aria-labelledby="differentials-title">
       <div class="container">
         <h2 class="section-title differentials-title reveal-onscroll" id="differentials-title" style="--delay:0s">O que
@@ -223,9 +206,6 @@
       </div>
     </section>
 
-    <!-- =========================================
-       CLIENTES �?" Empresas atendidas
-  ========================================== -->
     <section class="clients" id="clientes" aria-labelledby="clients-title">
       <div class="container">
         <div class="clients-inner reveal-onscroll" style="--delay:0s">
@@ -262,9 +242,6 @@
       </div>
     </section>
 
-    <!-- =========================================
-       CONTATO �?" Formulário de orçamento
-  ========================================== -->
     <section class="contact" id="contato" aria-labelledby="contact-title">
       <div class="contact-image" role="img" aria-label="Equipe Monforte trabalhando em uma peça industrial"></div>
 
@@ -313,9 +290,6 @@
 
   </main>
 
-  <!-- =========================================
-       RODAP�? �?" Informações e redes sociais
-  ========================================== -->
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-info">
@@ -359,186 +333,7 @@
     </div>
   </footer>
 
-  <!-- =========================================
-       MODAL DE VÍDEO
-       Para usar: coloque a URL do vídeo (YouTube/Vimeo ou .mp4)
-       no atributo data-video-src do botão #playVideoBtn acima.
-  ========================================== -->
-  <div class="video-modal" id="videoModal" aria-hidden="true" role="dialog" aria-modal="true">
-    <div class="video-modal-backdrop" data-close></div>
-    <div class="video-modal-dialog">
-      <button class="video-modal-close" data-close aria-label="Fechar vídeo">&times;</button>
-      <div class="video-modal-content" id="videoModalContent"></div>
-    </div>
-  </div>
-
-  <!-- próximas seções serão adicionadas aqui -->
-
   <script src="assets/js/main.js" defer></script>
-  <script src="assets/js/contact-form.js" defer></script>
-
-  <!-- Código legado mantido temporariamente como referência durante a separação do JavaScript.
-    // =========================================
-    // MONFORTE �?" Menu mobile
-    // =========================================
-    document.addEventListener('DOMContentLoaded', function () {
-      const navToggle = document.getElementById('navToggle');
-      const mainNav = document.getElementById('mainNav');
-
-      if (!navToggle || !mainNav) return;
-
-      function closeMenu() {
-        navToggle.classList.remove('active');
-        navToggle.setAttribute('aria-expanded', 'false');
-        mainNav.classList.remove('open');
-        document.body.style.overflow = '';
-      }
-
-      function toggleMenu() {
-        const isOpen = mainNav.classList.toggle('open');
-        navToggle.classList.toggle('active', isOpen);
-        navToggle.setAttribute('aria-expanded', String(isOpen));
-        document.body.style.overflow = isOpen ? 'hidden' : '';
-      }
-
-      navToggle.addEventListener('click', toggleMenu);
-
-      // Fecha o menu ao clicar em um link (mobile)
-      mainNav.querySelectorAll('a').forEach(function (link) {
-        link.addEventListener('click', closeMenu);
-      });
-
-      // Fecha o menu ao redimensionar para desktop
-      window.addEventListener('resize', function () {
-        if (window.innerWidth > 991) closeMenu();
-      });
-    });
-
-    // =========================================
-    // MONFORTE �?" Parallax suave no hero
-    // =========================================
-    (function () {
-      var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      var heroMedia = document.getElementById('heroMedia');
-      var hero = document.getElementById('hero');
-      if (!heroMedia || !hero || prefersReduced) return;
-
-      var ticking = false;
-      var PARALLAX_FACTOR = 0.32; // intensidade do efeito �?" sutil de propósito
-
-      function updateParallax() {
-        var heroHeight = hero.offsetHeight;
-        var scrolled = window.scrollY || window.pageYOffset;
-
-        if (scrolled <= heroHeight) {
-          heroMedia.style.transform = 'translate3d(0,' + (scrolled * PARALLAX_FACTOR) + 'px,0)';
-        }
-        ticking = false;
-      }
-
-      window.addEventListener('scroll', function () {
-        if (!ticking) {
-          window.requestAnimationFrame(updateParallax);
-          ticking = true;
-        }
-      }, { passive: true });
-    })();
-
-    // =========================================
-    // MONFORTE �?" Reveal on scroll (reutilizável)
-    // =========================================
-    (function () {
-      var items = document.querySelectorAll('.reveal-onscroll');
-      if (!items.length) return;
-
-      if (!('IntersectionObserver' in window)) {
-        items.forEach(function (el) { el.classList.add('is-visible'); });
-        return;
-      }
-
-      var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
-
-      items.forEach(function (el) { observer.observe(el); });
-    })();
-
-    // =========================================
-    // MONFORTE �?" Modal de vídeo institucional
-    // =========================================
-    (function () {
-      var playBtn = document.getElementById('playVideoBtn');
-      var modal = document.getElementById('videoModal');
-      var modalContent = document.getElementById('videoModalContent');
-      if (!playBtn || !modal || !modalContent) return;
-
-      function getEmbedUrl(url) {
-        var ytMatch = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([\w-]{11})/);
-        if (ytMatch) return 'https://www.youtube.com/embed/' + ytMatch[1] + '?autoplay=1&rel=0';
-
-        var vimeoMatch = url.match(/vimeo\.com\/(\d+)/);
-        if (vimeoMatch) return 'https://player.vimeo.com/video/' + vimeoMatch[1] + '?autoplay=1';
-
-        return null;
-      }
-
-      function openModal() {
-        var src = playBtn.getAttribute('data-video-src');
-
-        if (!src) {
-          modalContent.innerHTML = '<p class="video-modal-empty">Vídeo em breve. Para ativar, adicione a URL do YouTube, Vimeo ou .mp4 no atributo <code>data-video-src</code> do botão de play.</p>';
-        } else {
-          var embedUrl = getEmbedUrl(src);
-          if (embedUrl) {
-            modalContent.innerHTML = '<iframe src="' + embedUrl + '" title="Vídeo institucional Monforte" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
-          } else {
-            modalContent.innerHTML = '<video src="' + src + '" controls autoplay playsinline></video>';
-          }
-        }
-
-        modal.classList.add('is-open');
-        modal.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-      }
-
-      function closeModal() {
-        modal.classList.remove('is-open');
-        modal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-        modalContent.innerHTML = ''; // para o vídeo/iframe ao fechar
-      }
-
-      playBtn.addEventListener('click', openModal);
-
-      modal.querySelectorAll('[data-close]').forEach(function (el) {
-        el.addEventListener('click', closeModal);
-      });
-
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
-      });
-    })();
-
-    // =========================================
-    // MONFORTE �?" Validação visual do formulário
-    // =========================================
-    (function () {
-      var contactForm = document.getElementById('contactForm');
-      var contactStatus = document.getElementById('contactStatus');
-      if (!contactForm || !contactStatus) return;
-
-      contactForm.addEventListener('submit', function (event) {
-        event.preventDefault();
-        contactStatus.textContent = 'Mensagem recebida. Em breve entraremos em contato.';
-        contactForm.reset();
-      });
-    })();
-  -->
 </body>
 
 </html>

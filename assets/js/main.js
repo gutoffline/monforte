@@ -1,4 +1,3 @@
-// MONFORTE — Menu mobile
 document.addEventListener('DOMContentLoaded', function () {
   const navToggle = document.getElementById('navToggle');
   const mainNav = document.getElementById('mainNav');
@@ -27,61 +26,36 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  var playBtn = document.getElementById('playVideoBtn');
-  var modal = document.getElementById('videoModal');
-  var modalContent = document.getElementById('videoModalContent');
-
-  if (playBtn && modal && modalContent) {
-    function getEmbedUrl(url) {
-      var ytMatch = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([\w-]{11})/);
-      if (ytMatch) return 'https://www.youtube.com/embed/' + ytMatch[1] + '?autoplay=1&rel=0';
-
-      var vimeoMatch = url.match(/vimeo\.com\/(\d+)/);
-      if (vimeoMatch) return 'https://player.vimeo.com/video/' + vimeoMatch[1] + '?autoplay=1';
-
-      return null;
-    }
-
-    function closeModal() {
-      modal.classList.remove('is-open');
-      modal.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-      modalContent.innerHTML = '';
-    }
-
-    playBtn.addEventListener('click', function () {
-      var src = playBtn.getAttribute('data-video-src');
-      var embedUrl = src && getEmbedUrl(src);
-
-      if (!src) {
-        modalContent.innerHTML = '<p class="video-modal-empty">Vídeo em breve. Para ativar, adicione a URL do YouTube, Vimeo ou .mp4 no atributo <code>data-video-src</code> do botão de play.</p>';
-      } else if (embedUrl) {
-        modalContent.innerHTML = '<iframe src="' + embedUrl + '" title="Vídeo institucional Monforte" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
-      } else {
-        modalContent.innerHTML = '<video src="' + src + '" controls autoplay playsinline></video>';
-      }
-
-      modal.classList.add('is-open');
-      modal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    });
-
-    modal.querySelectorAll('[data-close]').forEach(function (element) {
-      element.addEventListener('click', closeModal);
-    });
-
-    document.addEventListener('keydown', function (event) {
-      if (event.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
-    });
-  }
-
   var contactForm = document.getElementById('contactForm');
   var contactStatus = document.getElementById('contactStatus');
   if (contactForm && contactStatus) {
     contactForm.addEventListener('submit', function (event) {
       event.preventDefault();
-      contactStatus.textContent = 'Mensagem recebida. Em breve entraremos em contato.';
-      contactForm.reset();
+
+      var submitButton = contactForm.querySelector('.contact-submit');
+      var originalButtonText = submitButton ? submitButton.textContent : '';
+
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = 'Enviando...';
+      }
+      contactStatus.textContent = 'Enviando sua mensagem...';
+
+      emailjs.sendForm('service_zo3fmgr', 'contato_site', contactForm)
+        .then(function () {
+          contactStatus.textContent = 'Mensagem enviada com sucesso. Em breve entraremos em contato.';
+          contactForm.reset();
+        })
+        .catch(function (error) {
+          console.error('Erro EmailJS:', error);
+          contactStatus.textContent = 'Não foi possível enviar a mensagem agora. Tente novamente.';
+        })
+        .finally(function () {
+          if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.textContent = originalButtonText;
+          }
+        });
     });
   }
 
