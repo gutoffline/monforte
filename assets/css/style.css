@@ -495,6 +495,40 @@
       fill: currentColor;
     }
 
+    /* Assinatura: direitos reservados e crédito da agência */
+    .footer-base {
+      padding: 14px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      background-color: #001a38;
+    }
+
+    .footer-base-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    .footer-base p {
+      color: var(--color-gray-300);
+      font-family: var(--font-sora);
+      font-size: 11px;
+      font-weight: 300;
+      line-height: 1.5;
+    }
+
+    .footer-base a {
+      flex-shrink: 0;
+      color: var(--color-white);
+      font-family: var(--font-archivo);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .04em;
+      transition: color .25s ease;
+    }
+
+    .footer-base a:hover { color: var(--color-blue-400); }
+
     @media (max-width: 700px) {
       .footer-inner {
         flex-direction: column;
@@ -507,6 +541,15 @@
 
       .footer-info { align-items: center; }
       .footer-address { font-size: 12px; }
+
+      .footer-base { padding: 18px 0; }
+
+      .footer-base-inner {
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+        text-align: center;
+      }
     }
 
     /* =========================================
