@@ -869,7 +869,7 @@
       .hero-content { padding-top: var(--header-height-mobile); }
       .hero-text { padding: 40px 0 60px; max-width: 100%; }
       .hero-title { font-size: 32px; }
-      .container { padding: 0 24px; }
+      .container { padding-right: 24px; padding-left: 24px; }
     }
 
     @media (max-width: 480px) {
