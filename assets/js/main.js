@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     window.addEventListener('resize', function () {
-      if (window.innerWidth > 1279) closeMenu();
+      if (window.innerWidth > 991) closeMenu();
     });
   }
 
