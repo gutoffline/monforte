@@ -129,6 +129,24 @@ document.addEventListener('DOMContentLoaded', function () {
   // dentro do bloco. Um tamanho pode ter variações; chooseTemplate escolhe a que melhor
   // combina com a orientação das fotos (foto horizontal não vai para slot alto).
   var layouts = {
+    5: {
+      rotation: [5, 6, 5, 7], minLast: 3, initialBlocks: 2,
+      sizes: {
+        1: [{ rows: 2, slots: [[1, 1, 5, 2]] }],
+        2: [{ rows: 2, slots: [[1, 1, 2, 2], [3, 1, 3, 2]] }],
+        3: [{ rows: 2, slots: [[1, 1, 2, 2], [3, 1, 1, 2], [4, 1, 2, 2]] }],
+        4: [{ rows: 2, slots: [[1, 1, 2, 2], [3, 1, 1, 2], [4, 1, 1, 2], [5, 1, 1, 2]] }],
+        5: [
+          { rows: 2, slots: [[1, 1, 2, 2], [3, 1, 1, 2], [4, 1, 1, 1], [4, 2, 1, 1], [5, 1, 1, 2]] },
+          { rows: 2, slots: [[1, 1, 2, 2], [3, 1, 2, 1], [3, 2, 1, 1], [4, 2, 1, 1], [5, 1, 1, 2]] }
+        ],
+        6: [
+          { rows: 2, slots: [[1, 1, 1, 2], [2, 1, 1, 1], [3, 1, 1, 1], [4, 1, 2, 2], [2, 2, 1, 1], [3, 2, 1, 1]] },
+          { rows: 2, slots: [[1, 1, 1, 2], [2, 1, 2, 1], [2, 2, 1, 1], [3, 2, 1, 1], [4, 1, 1, 2], [5, 1, 1, 2]] }
+        ],
+        7: [{ rows: 2, slots: [[1, 1, 1, 2], [2, 1, 1, 1], [2, 2, 1, 1], [3, 1, 1, 2], [4, 1, 1, 1], [4, 2, 1, 1], [5, 1, 1, 2]] }]
+      }
+    },
     4: {
       rotation: [4, 5, 4, 6], minLast: 3, initialBlocks: 2,
       sizes: {
@@ -164,21 +182,6 @@ document.addEventListener('DOMContentLoaded', function () {
         ],
         5: [{ rows: 2, slots: [[1, 1, 1, 2], [2, 1, 1, 1], [3, 1, 1, 1], [2, 2, 1, 1], [3, 2, 1, 1]] }],
         6: [{ rows: 2, slots: [[1, 1, 1, 1], [2, 1, 1, 1], [3, 1, 1, 1], [1, 2, 1, 1], [2, 2, 1, 1], [3, 2, 1, 1]] }]
-      }
-    },
-    2: {
-      rotation: [3, 2], minLast: 1, initialBlocks: 4,
-      sizes: {
-        1: [{ rows: 2, slots: [[1, 1, 2, 2]] }],
-        2: [
-          { rows: 2, slots: [[1, 1, 1, 2], [2, 1, 1, 2]] },
-          { rows: 1, slots: [[1, 1, 1, 1], [2, 1, 1, 1]] }
-        ],
-        3: [
-          { rows: 2, slots: [[1, 1, 1, 2], [2, 1, 1, 1], [2, 2, 1, 1]] },
-          { rows: 2, slots: [[1, 1, 2, 1], [1, 2, 1, 1], [2, 2, 1, 1]] }
-        ],
-        4: [{ rows: 2, slots: [[1, 1, 1, 1], [2, 1, 1, 1], [1, 2, 1, 1], [2, 2, 1, 1]] }]
       }
     }
   };
@@ -268,8 +271,8 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function layoutGallery() {
-    var cols = parseInt(getComputedStyle(grid).getPropertyValue('--cols'), 10) || 4;
-    var layout = layouts[cols] || layouts[4];
+    var cols = parseInt(getComputedStyle(grid).getPropertyValue('--cols'), 10) || 5;
+    var layout = layouts[cols] || layouts[5];
     var active = items.filter(matchesFilter);
     var sizes = partition(active.length, layout);
     var visibleBlocks = layout.initialBlocks * pages;

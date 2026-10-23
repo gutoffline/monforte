@@ -193,7 +193,12 @@
       background-size: cover;
       background-position: center;
       transition: height .3s ease;
+      /* Camada própria nas transições da galeria (filtros e "Ver mais"),
+         para as fotos animadas não passarem por cima do menu. */
+      view-transition-name: site-header;
     }
+
+    ::view-transition-group(site-header) { z-index: 1; }
 
     .header-inner {
       height: 100%;
@@ -1550,8 +1555,8 @@
     .gallery-grid-wrap { container-type: inline-size; }
 
     .gallery-grid {
-      --cols: 4;
-      --gap: 12px;
+      --cols: 5;
+      --gap: 10px;
       display: grid;
       grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
       grid-auto-rows: 240px;
@@ -1564,7 +1569,7 @@
       display: block;
       overflow: hidden;
       isolation: isolate;
-      border-radius: 14px;
+      border-radius: 12px;
       background-color: var(--color-gray-100);
     }
 
@@ -1648,12 +1653,12 @@
 
     @media (max-width: 991px) {
       .gallery { padding: 64px 0 76px; }
-      .gallery-grid { --cols: 3; --gap: 10px; }
+      .gallery-grid { --cols: 4; --gap: 10px; }
     }
 
     @media (max-width: 599px) {
-      .gallery-grid { --cols: 2; --gap: 8px; }
-      .gallery-item { border-radius: 10px; }
+      .gallery-grid { --cols: 3; --gap: 6px; }
+      .gallery-item { border-radius: 8px; }
       .gallery-item::after { display: none; }
     }
 
