@@ -232,6 +232,15 @@
     .nav-list--left { justify-content: flex-end; margin-right: 212px; }
     .nav-list--right { justify-content: flex-start; margin-left: 212px; }
 
+    @media (min-width: 992px) {
+      .nav-list.nav-list--with-products {
+        min-width: 0;
+        flex-wrap: wrap;
+        column-gap: clamp(12px, 1.5vw, 24px);
+        row-gap: 10px;
+      }
+    }
+
     .nav-list a {
       font-family: var(--font-archivo);
       font-weight: 700;
