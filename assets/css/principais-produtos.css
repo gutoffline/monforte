@@ -27,7 +27,7 @@
   padding: clamp(56px, 5vw, 86px) 0;
   text-align: center;
   color: var(--color-white);
-  background: var(--color-blue-900) url('../assets/img/fundo-menu.webp') center / cover;
+  background: var(--color-blue-900) url('../img/fundo-menu.webp') center / cover;
 }
 
 .products-intro h1 {
